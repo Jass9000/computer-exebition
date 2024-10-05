@@ -132,7 +132,8 @@ def display_winnings(index):
     won_label.pack(expand=True)
 
     # Delay playing the sound until after the screen has updated
-    root.after(500, lambda: playsound.playsound("end.mp3")) 
+    time.sleep(500)
+    playsound.playsound("end.mp3")
 
 def start(e):
     global leftframe, topFrame, centerFrame, bottomFrame, rightframe
