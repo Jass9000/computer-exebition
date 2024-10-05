@@ -79,10 +79,8 @@ def select(event):
             display_winnings(i)  # If all questions are answered, display final winnings
     else:
         playsound.playsound("lose.wav", block=False)
-        if i == 0:
-            display_winnings(0)  # Player gets ₹0 if the first question is wrong
-        else:
-            display_winnings(i)  # Display the amount won before the wrong answer
+
+        display_winnings(i)  # Display the amount won before the wrong answer
 
 def skip_question():
     global i, skip_used
