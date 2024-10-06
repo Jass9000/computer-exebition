@@ -44,6 +44,21 @@ questions_data = [
         "question": "Which one of the following salts does not contain water of crystallisation?",
         "options": ["Blue vitriol", "Baking soda", "Washing soda", "Gypsum"],
         "answer": "Baking soda"
+    },
+    {
+    "question": "What is the main function of red blood cells in the human body?",
+        "options": ["To fight infections", "To transport oxygen", "To carry nutrients", "To regulate body temperature"],
+        "answer": "To transport oxygen"
+    },
+    {
+        "question": "In a parallelogram, the opposite sides are:",
+        "options": ["Parallel and equal", "Perpendicular", "Equal and perpendicular", "None of the above"],
+        "answer": "Parallel and equal"
+    },
+    {
+        "question": "What is the value of the expression 2^5?",
+        "options": ["8", "16", "32", "64"],
+        "answer": "32"
     }
 ]
 
@@ -81,7 +96,7 @@ def select(event):
         playsound.playsound("lose.wav", block=False)
 
         display_winnings(i)  # Display the amount won before the wrong answer
-
+        
 def skip_question():
     global i, skip_used
     if not skip_used and i < len(questions_data) - 1:  # Check if skip hasn't been used and if there is a next question
