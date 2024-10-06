@@ -148,7 +148,7 @@ def display_winnings(index):
 
     # Delay playing the sound until after the screen has updated
     time.sleep(500)
-    playsound.playsound("end.mp3")
+    #playsound.playsound("end.mp3")
 
 def start(e):
     global leftframe, topFrame, centerFrame, bottomFrame, rightframe
