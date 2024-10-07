@@ -120,7 +120,7 @@ def select(event):
         playsound.playsound("clap.wav")
         questionArea.delete(1.0, END)
         i += 1  # Move to the next question
-        if i < len(questions_data):  # Ensure i doesn't exceed available questions
+        if i < 16:  # Ensure i doesn't exceed available questions
             next_question = questions_data[i]
             questionArea.insert(END, next_question["question"])
             optionButton1.config(text=next_question["options"][0])
@@ -181,7 +181,6 @@ def lifeline_50_50():
 def display_winnings(index):
     # Stop the game and show the amount won
     for widget in root.winfo_children():
-        print(widget)
         widget.destroy()
     won_label = Label(root, text=f"You won {prize_money[index]}!", font=("Arial", 30), bg='cyan', fg='black')
     won_label.pack(expand=True)
