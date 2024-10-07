@@ -180,15 +180,16 @@ def lifeline_50_50():
 
 def display_winnings(index):
     # Stop the game and show the amount won
+    print(root.winfo_children)
     for widget in root.winfo_children():
+        print(widget)
         widget.destroy()
-
+    print('out of loop')
     won_label = Label(root, text=f"You won {prize_money[index]}!", font=("Arial", 30), bg='cyan', fg='black')
     won_label.pack(expand=True)
 
     # Delay playing the sound until after the screen has updated
-    time.sleep(500)
-    playsound.playsound("end.mp3")
+    #playsound.playsound("end.mp3")
 
 def start(e):
     global leftframe, topFrame, centerFrame, bottomFrame, rightframe
