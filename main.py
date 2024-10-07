@@ -140,11 +140,9 @@ def lifeline_50_50():
 
 def display_winnings(index):
     # Stop the game and show the amount won
-    print(root.winfo_children)
     for widget in root.winfo_children():
         print(widget)
         widget.destroy()
-    print('out of loop')
     won_label = Label(root, text=f"You won {prize_money[index]}!", font=("Arial", 30), bg='cyan', fg='black')
     won_label.pack(expand=True)
 
