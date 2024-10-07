@@ -59,7 +59,62 @@ questions_data = [
         "question": "What is the value of the expression 2^5?",
         "options": ["8", "16", "32", "64"],
         "answer": "32"
-    }
+    },
+    {
+        "question": "What is the largest ocean on Earth?",
+        "options": ["Indian Ocean", "Atlantic Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "answer": "Pacific Ocean"
+    },
+    {
+        "question": "What is the chemical formula for methane?",
+        "options": ["CH3", "CH4", "C2H4", "CH2O"],
+        "answer": "CH4"
+    },
+    {
+        "question": "Which movie features the famous dialogue 'All is well'?",
+        "options": ["3 Idiots", "Chhichhore", "Taare Zameen Par", "Zindagi Na Milegi Dobara"],
+        "answer": "3 Idiots"
+    },
+    {
+        "question": "Who is the lead actor in the movie 'PK'?",
+        "options": ["Shah Rukh Khan", "Aamir Khan", "Salman Khan", "Hrithik Roshan"],
+        "answer": "Aamir Khan"
+    },
+    {
+        "question": "Who is the captain of the Indian cricket team as of 2023?",
+        "options": ["Virat Kohli", "Rohit Sharma", "MS Dhoni", "Kapil Dev"],
+        "answer": "Rohit Sharma"
+    },
+    {
+        "question": "Which Indian cricketer was known for his famous ' Helicopter Shot'?",
+        "options": ["Sachin Tendulkar", "MS Dhoni", "Virat Kohli", "Yuvraj Singh"],
+        "answer": "MS Dhoni"
+    },
+    {
+        "question": "What is the name of the fictional African country in 'Black Panther'?",
+        "options": ["Wakanda", "Zamunda", "Genosha", "Elbonia"],
+        "answer": "Wakanda"
+    },
+    {
+        "question": "Which country has the most natural lakes?",
+        "options": ["Canada", "Russia", "United States", "India"],
+        "answer": "Canada"
+    },
+     {
+        "question": "Who painted the 'Last Supper'?",
+        "options": ["Michelangelo", "Leonardo da Vinci", "Raphael", "Donatello"],
+        "answer": "Leonardo da Vinci"
+    },
+     {
+        "question": "Who Invented The First Smartphone?",
+        "options": ["Ronald Wayne", "Steve Jobs", "Frank Canova", "Steve Wozniak"],
+        "answer": "Frank Canova"
+    },
+    {
+        "question": "Who Invented The First Laptop?",
+        "options": ["Alan Kay", "Adam Osborne", "Charles Babbage", "Sky Li"],
+        "answer": "Alan Kay"
+    },
 ]
 
 # Load amount images
@@ -94,7 +149,7 @@ def select(event):
             display_winnings(i)  # If all questions are answered, display final winnings
     else:
         playsound.playsound("lose.wav", block=False)
-
+        
         display_winnings(i)  # Display the amount won before the wrong answer
         
 def skip_question():
