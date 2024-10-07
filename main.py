@@ -46,16 +46,6 @@ questions_data = [
         "answer": "Baking soda"
     },
     {
-    "question": "What is the main function of red blood cells in the human body?",
-        "options": ["To fight infections", "To transport oxygen", "To carry nutrients", "To regulate body temperature"],
-        "answer": "To transport oxygen"
-    },
-    {
-        "question": "In a parallelogram, the opposite sides are:",
-        "options": ["Parallel and equal", "Perpendicular", "Equal and perpendicular", "None of the above"],
-        "answer": "Parallel and equal"
-    },
-    {
         "question": "What is the value of the expression 2^5?",
         "options": ["8", "16", "32", "64"],
         "answer": "32"
@@ -69,11 +59,6 @@ questions_data = [
         "question": "What is the chemical formula for methane?",
         "options": ["CH3", "CH4", "C2H4", "CH2O"],
         "answer": "CH4"
-    },
-    {
-        "question": "Which movie features the famous dialogue 'All is well'?",
-        "options": ["3 Idiots", "Chhichhore", "Taare Zameen Par", "Zindagi Na Milegi Dobara"],
-        "answer": "3 Idiots"
     },
     {
         "question": "Who is the lead actor in the movie 'PK'?",
