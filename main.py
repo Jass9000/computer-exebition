@@ -165,7 +165,8 @@ def select(event):
             display_winnings(i)  # If all questions are answered, display final winnings
     else:
         playsound.playsound("lose.wav", block=False)
-        
+        time.sleep(1)
+        playsound.playsound("end.mp3",block=False)
         display_winnings(i)  # Display the amount won before the wrong answer
         
 def skip_question():
