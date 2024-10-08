@@ -152,7 +152,7 @@ def select(event):
         playsound.playsound("clap.wav")
         questionArea.delete(1.0, END)
         i += 1  # Move to the next question
-        if i < len(questions_data):  # Ensure i doesn't exceed available questions
+        if i < 16:  # Ensure i doesn't exceed available questions
             next_question = questions_data[i]
             questionArea.insert(END, next_question["question"])
             optionButton1.config(text=next_question["options"][0])
@@ -212,12 +212,10 @@ def lifeline_50_50():
 
 def display_winnings(index):
     # Stop the game and show the amount won
-    print(root.winfo_children)
     for widget in root.winfo_children():
-        print(widget)
         widget.destroy()
-    print('out of loop')
-    won_label = Label(root, text=f"You won {prize_money[index]}!", font=("Arial", 30), bg='cyan', fg='black')
+    displaytext=f"Wrong answer correct answer was {questions_data[index]["answer"]}.You won {prize_money[index]}!" if index < 16 else f"You won {prize_money[index]}!" #Shows the right answer if 
+    won_label = Label(root, text=displaytext, font=("Arial", 30), bg='cyan', fg='black')
     won_label.pack(expand=True)
 
     # Delay playing the sound until after the screen has updated
@@ -266,7 +264,7 @@ def start(e):
     logoLabel = Label(centerFrame, image=centerImage, bg='black', width=300, height=200, bd=0)
     logoLabel.grid(row=0, column=0)
 
-    amountLabel = Label(rightframe, image=amountImages[0], bg='black')
+    amountLabel = Label(rightframe, image=amountImages[i], bg='black')
     amountLabel.grid(row=0, column=0)
 
     layoutImage = PhotoImage(file='layout1.png')
@@ -275,26 +273,26 @@ def start(e):
 
     questionArea = Text(bottomFrame, font=('arial', 18, 'bold'), width=40, height=2, wrap='word', bg='black', fg='white', bd=0)
     questionArea.place(x=80, y=15)
-    questionArea.insert(END, questions_data[0]["question"])
+    questionArea.insert(END, questions_data[i]["question"])
 
     labelA = Label(bottomFrame, text='A:', bg='black', fg='white', font=('arial', 16, 'bold'))
     labelA.place(x=60, y=135)
-    optionButton1 = Button(bottomFrame, text=questions_data[0]["options"][0], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
+    optionButton1 = Button(bottomFrame, text=questions_data[i]["options"][0], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
     optionButton1.place(x=100, y=125)
 
     labelB = Label(bottomFrame, text='B:', bg='black', fg='white', font=('arial', 16, 'bold'))
     labelB.place(x=400, y=135)
-    optionButton2 = Button(bottomFrame, text=questions_data[0]["options"][1], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
+    optionButton2 = Button(bottomFrame, text=questions_data[i]["options"][1], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
     optionButton2.place(x=430, y=125)
 
     labelC = Label(bottomFrame, text='C:', bg='black', fg='white', font=('arial', 16, 'bold'))
     labelC.place(x=60, y=235)
-    optionButton3 = Button(bottomFrame, text=questions_data[0]["options"][2], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
+    optionButton3 = Button(bottomFrame, text=questions_data[i]["options"][2], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
     optionButton3.place(x=100, y=225)
 
     labelD = Label(bottomFrame, text='D:', bg='black', fg='white', font=('arial', 16, 'bold'))
     labelD.place(x=400, y=235)
-    optionButton4 = Button(bottomFrame, text=questions_data[0]["options"][3], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
+    optionButton4 = Button(bottomFrame, text=questions_data[i]["options"][3], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
     optionButton4.place(x=430, y=225)
 
     optionButton1.bind('<Button-1>', select)
