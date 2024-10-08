@@ -252,7 +252,7 @@ def start(e):
     lifeline50Button = Button(topFrame, image=image50, bg='black', bd=0, activebackground='yellow', width=180, height=80, cursor='hand2', command=lifeline_50_50)
     lifeline50Button.grid(row=0, column=0)
 
-    imageaudience = PhotoImage(file='audiencepole.png')
+    imageaudience = PhotoImage(file='phoneAFriend.png')
     lifelineaudienceButton = Button(topFrame, image=imageaudience, bg='black', bd=0, activebackground='yellow', width=180, height=80, cursor='hand2')
     lifelineaudienceButton.grid(row=0, column=1)
 
