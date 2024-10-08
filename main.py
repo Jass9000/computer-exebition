@@ -26,11 +26,6 @@ questions_data = [
         "answer": "Air at 100°C"
     },
     {
-        "question": "Which tech giant has developed an AI-powered coding assistant named Studio Bot?",
-        "options": ["Microsoft", "Intel", "Google", "Apple"],
-        "answer": "Google"
-    },
-    {
         "question": "Who is the father of Computers?",
         "options": ["James Gosling", "Charles Babbage", "Dennis Ritchie", "Bjarne Stroustrup"],
         "answer": "Charles Babbage"
@@ -100,6 +95,43 @@ questions_data = [
         "options": ["Alan Kay", "Adam Osborne", "Charles Babbage", "Sky Li"],
         "answer": "Alan Kay"
     },
+    {
+    "question": "Which boxer was nicknamed 'The Brown Bomber'?",
+    "options": ["Muhammad Ali", "Mike Tyson", "Joe Frazier", "Joe Louis"],
+    "answer": "Joe Louis"
+    },
+    {
+    "question": "In which layer of Earth's atmosphere does the ozone layer exist?",
+    "options": ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+    "answer": "Stratosphere"
+    },
+    {
+    "question": "Which country is known as the Land of the Rising Sun?",
+    "options": ["China", "Thailand", "Japan", "South Korea"],
+    "answer": "Japan"
+    },
+    {
+    "question": "In statistics, what is the term for the middle value in a set of numbers?",
+    "options": ["Mean", "Median", "Mode", "Range"],
+    "answer": "Median"
+    },
+    {
+    "question": "Who was the last ruler of the Mughal Empire in India?",
+    "options": ["Bahadur Shah II", "Akbar II", "Aurangzeb", "Shah Jahan"],
+    "answer": "Bahadur Shah II"
+    },
+    {
+    "question": "What is the speed of light in a vacuum?",
+    "options": ["3 x 10^6 m/s", "3 x 10^8 m/s", "3 x 10^10 m/s", "3 x 10^12 m/s"],
+    "answer": "3 x 10^8 m/s"
+    },
+    {
+    "question": "Which acid is known as the king of chemicals?",
+    "options": ["Sulfuric Acid", "Nitric Acid", "Hydrochloric Acid", "Acetic Acid"],
+    "answer": "Sulfuric Acid"
+    },
+
+
 ]
 
 # Load amount images
