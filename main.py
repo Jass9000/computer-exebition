@@ -3,7 +3,6 @@ import playsound
 import time
 import random
 
-
 # Initialize i to track the current question, skip flag, and lifeline flag
 i = 0
 skip_used = False  # Flag to track if skip has been used
