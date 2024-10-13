@@ -2,6 +2,15 @@ from tkinter import *
 import playsound
 import time
 import random
+import pyttsx3
+
+
+def say(a:str):
+    root.update_idletasks()
+    say=pyttsx3.init()
+    say.say(a)
+    say.runAndWait()
+
 
 # Initialize i to track the current question, skip flag, and lifeline flag
 i = 0
@@ -161,6 +170,7 @@ def select(event):
             amountLabel.config(image=amountImages[i])
             playsound.playsound("next q.wav", block=False)
             time.sleep(1)
+            say(next_question["question"])
         else:
             display_winnings(i)  # If all questions are answered, display final winnings
     else:
@@ -185,6 +195,7 @@ def skip_question():
         amountLabel.config(image=amountImages[i])
         imageskip.config(file='skip-used.png')
         lifelineskipButton.config(activebackground='black', bg='black', cursor='')
+        say(next_question["question"])
 
 def lifeline_50_50():
     global lifeline_50_used, i
@@ -229,7 +240,7 @@ def start(e):
 
     # Destroy the start button after clicking
     startbutton.destroy()
-    playsound.playsound("amitabh.wav")
+    #playsound.playsound("amitabh.wav")
     bgimage.destroy()
 
     leftframe = Frame(root, bg='black', padx=90)
@@ -301,6 +312,7 @@ def start(e):
     optionButton4.bind('<Button-1>', select)
 
     playsound.playsound('q.wav', block=False)
+    say(questions_data[i]["question"])
 
 # Create the start button
 bgimag = PhotoImage(file='bg.png')
