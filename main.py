@@ -6,7 +6,8 @@ import pyttsx3
 
 
 def say(a:str):
-    root.update_idletasks()
+    root.update()
+    time.sleep(5)
     say=pyttsx3.init()
     say.say(a)
     say.runAndWait()
@@ -169,20 +170,19 @@ def select(event):
             optionButton4.config(text=next_question["options"][3])
             amountLabel.config(image=amountImages[i])
             playsound.playsound("next q.wav", block=False)
-            time.sleep(1)
             say(next_question["question"])
         else:
             display_winnings(i)  # If all questions are answered, display final winnings
     else:
-        playsound.playsound("lose.wav", block=False)
+        playsound.playsound("lose.wav")
         time.sleep(1)
-        playsound.playsound("end.mp3",block=False)
+        playsound.playsound("end.mp3")
         display_winnings(i)  # Display the amount won before the wrong answer
         
 def skip_question():
     global i, skip_used
     if not skip_used and i < len(questions_data) - 1:  # Check if skip hasn't been used and if there is a next question
-        playsound.playsound("next q.wav", block=False)
+        playsound.playsound("next q.wav",block=FALSE)
         skip_used = True  # Set the skip flag to True
         i += 1  # Move to the next question
         next_question = questions_data[i]
@@ -225,7 +225,7 @@ def display_winnings(index):
     # Stop the game and show the amount won
     for widget in root.winfo_children():
         widget.destroy()
-    displaytext=f"Wrong answer correct answer was {questions_data[index]["answer"]}.You won {prize_money[index]}!" if index < 16 else f"You won {prize_money[index]}!" #Shows the right answer if 
+    displaytext = f"Wrong answer correct answer was {questions_data[index]['answer']}. You won {prize_money[index]}!" if index < 16 else f"You won {prize_money[index]}!" # Shows the right answer if incorrect
     won_label = Label(root, text=displaytext, font=("Arial", 30), bg='cyan', fg='black')
     won_label.pack(expand=True)
 
@@ -310,8 +310,8 @@ def start(e):
     optionButton2.bind('<Button-1>', select)
     optionButton3.bind('<Button-1>', select)
     optionButton4.bind('<Button-1>', select)
-
-    playsound.playsound('q.wav', block=False)
+    
+    playsound.playsound('next q.wav',block=False)
     say(questions_data[i]["question"])
 
 # Create the start button
@@ -319,7 +319,7 @@ bgimag = PhotoImage(file='bg.png')
 bgimage = Label(root, image=bgimag, bd=0)
 bgimage.place(x=-0, y=0)
 
-# Use Pillow to open the play button image
+
 play_photo = PhotoImage(file='play.png')
 
 # Create the play button with transparent image
