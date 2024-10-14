@@ -182,6 +182,7 @@ def select(event):
 def phone():
     global i,phone_used
     if not phone_used:
+        playsound.playsound("calling.mp3")
         if 0.3>=random.random():
             wrong_options=[option for option in questions_data[i]["options"] if option != questions_data[i]["answer"]]
             option_by_friend=random.choice(wrong_options)
