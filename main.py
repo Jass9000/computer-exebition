@@ -7,7 +7,7 @@ import pyttsx3
 
 def say(a:str):
     root.update()
-    time.sleep(5)
+    time.sleep(2)
     say=pyttsx3.init()
     say.say(a)
     say.runAndWait()
@@ -17,6 +17,7 @@ def say(a:str):
 i = 0
 skip_used = False  # Flag to track if skip has been used
 lifeline_50_used = False  # Flag to track if 50-50 lifeline has been used
+phone_used=False
 root = Tk()
 root.attributes('-fullscreen', True)
 root.geometry('1440x900+0+0')
@@ -176,9 +177,20 @@ def select(event):
     else:
         playsound.playsound("lose.wav")
         time.sleep(1)
-        playsound.playsound("end.mp3")
         display_winnings(i)  # Display the amount won before the wrong answer
-        
+
+def phone():
+    global i,phone_used
+    if not phone_used:
+        if 0.3>=random.random():
+            wrong_options=[option for option in questions_data[i]["options"] if option != questions_data[i]["answer"]]
+            option_by_friend=random.choice(wrong_options)
+        else:
+            option_by_friend=questions_data[i]["answer"]
+        say(f"The answer maybe {option_by_friend}")
+        phone_used=True
+        imagephoneAFriend.config(file='phoneAFriend-used.png')
+        phoneAFriend.config(activebackground='black', bg='black', cursor='')
 def skip_question():
     global i, skip_used
     if not skip_used and i < len(questions_data) - 1:  # Check if skip hasn't been used and if there is a next question
@@ -228,19 +240,19 @@ def display_winnings(index):
     displaytext = f"Wrong answer correct answer was {questions_data[index]['answer']}. You won {prize_money[index]}!" if index < 16 else f"You won {prize_money[index]}!" # Shows the right answer if incorrect
     won_label = Label(root, text=displaytext, font=("Arial", 30), bg='cyan', fg='black')
     won_label.pack(expand=True)
-
+    root.update()
     # Delay playing the sound until after the screen has updated
-    #playsound.playsound("end.mp3")
+    playsound.playsound("end.mp3")
 
 def start(e):
     global leftframe, topFrame, centerFrame, bottomFrame, rightframe
-    global lifeline50Button, lifelineaudienceButton, lifelineskipButton, logoLabel, amountLabel, layoutLabel, questionArea
+    global lifeline50Button, imagephoneAFriend, lifelineskipButton, logoLabel, amountLabel, layoutLabel, questionArea
     global labelA, optionButton1, labelB, optionButton2, labelC, optionButton3, labelD, optionButton4
-    global image50, imageaudience, imageskip, centerImage, layoutImage, questions_data, startbutton
+    global image50, phoneAFriend, imageskip, centerImage, layoutImage, questions_data, startbutton
 
     # Destroy the start button after clicking
     startbutton.destroy()
-    #playsound.playsound("amitabh.wav")
+    playsound.playsound("amitabh.wav")
     bgimage.destroy()
 
     leftframe = Frame(root, bg='black', padx=90)
@@ -263,9 +275,9 @@ def start(e):
     lifeline50Button = Button(topFrame, image=image50, bg='black', bd=0, activebackground='yellow', width=180, height=80, cursor='hand2', command=lifeline_50_50)
     lifeline50Button.grid(row=0, column=0)
 
-    imageaudience = PhotoImage(file='phoneAFriend.png')
-    lifelineaudienceButton = Button(topFrame, image=imageaudience, bg='black', bd=0, activebackground='yellow', width=180, height=80, cursor='hand2')
-    lifelineaudienceButton.grid(row=0, column=1)
+    imagephoneAFriend = PhotoImage(file='phoneAFriend.png')
+    phoneAFriend = Button(topFrame, image=imagephoneAFriend, bg='black', bd=0, activebackground='yellow', width=180, height=80, cursor='hand2',command=phone)
+    phoneAFriend.grid(row=0, column=1)
 
     imageskip = PhotoImage(file='skip.png')
     lifelineskipButton = Button(topFrame, image=imageskip, bg='black', bd=0, activebackground='yellow', width=180, height=80, cursor='hand2', command=skip_question)
