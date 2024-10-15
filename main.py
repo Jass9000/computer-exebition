@@ -258,7 +258,7 @@ def start(e):
 
     # Destroy the start button after clicking
     startbutton.destroy()
-    #playsound.playsound("amitabh.wav")
+    playsound.playsound("amitabh.wav")
     bgimage.destroy()
 
     leftframe = Frame(root, bg='black', padx=90)
