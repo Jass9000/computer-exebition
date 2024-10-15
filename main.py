@@ -171,7 +171,9 @@ def select(event):
             optionButton4.config(text=next_question["options"][3])
             amountLabel.config(image=amountImages[i])
             playsound.playsound("next q.wav", block=False)
-            say(next_question["question"])
+            say(f'{next_question["question"]} \n option A .{next_question["options"][0]}\n . option B .{next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
+
+            
         else:
             display_winnings(i)  # If all questions are answered, display final winnings
     else:
@@ -187,10 +189,14 @@ def phone():
             option_by_friend=random.choice(wrong_options)
         else:
             option_by_friend=questions_data[i]["answer"]
-        say(f"The answer maybe {option_by_friend}")
-        phone_used=True
+        
         imagephoneAFriend.config(file='phoneAFriend-used.png')
         phoneAFriend.config(activebackground='black', bg='black', cursor='')
+        root.update()
+        playsound.playsound("calling.mp3")
+        say(f"The answer maybe {option_by_friend}")
+        phone_used=True
+
 def skip_question():
     global i, skip_used
     if not skip_used and i < len(questions_data) - 1:  # Check if skip hasn't been used and if there is a next question
@@ -207,7 +213,7 @@ def skip_question():
         amountLabel.config(image=amountImages[i])
         imageskip.config(file='skip-used.png')
         lifelineskipButton.config(activebackground='black', bg='black', cursor='')
-        say(next_question["question"])
+        say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B .{next_question["options"][1]} . option C . {next_question["options"][2]} . option D {next_question["options"][3]} ')
 
 def lifeline_50_50():
     global lifeline_50_used, i
@@ -252,7 +258,7 @@ def start(e):
 
     # Destroy the start button after clicking
     startbutton.destroy()
-    playsound.playsound("amitabh.wav")
+    #playsound.playsound("amitabh.wav")
     bgimage.destroy()
 
     leftframe = Frame(root, bg='black', padx=90)
@@ -324,7 +330,7 @@ def start(e):
     optionButton4.bind('<Button-1>', select)
     
     playsound.playsound('next q.wav',block=False)
-    say(questions_data[i]["question"])
+    say(f'{questions_data[i]["question"]} \n option A .{questions_data[i]["options"][0]}\n . option B .{questions_data[i]["options"][1]} . option C .{questions_data[i]["options"][2]} . option D {questions_data[i]["options"][3]} ')
 
 # Create the start button
 bgimag = PhotoImage(file='bg.png')
