@@ -171,7 +171,7 @@ def select(event):
             optionButton4.config(text=next_question["options"][3])
             amountLabel.config(image=amountImages[i])
             playsound.playsound("next q.wav", block=False)
-            say(f'{next_question["question"]} \n option A .{next_question["options"][0]}\n . option B .{next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
+            say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
 
             
         else:
@@ -213,7 +213,7 @@ def skip_question():
         amountLabel.config(image=amountImages[i])
         imageskip.config(file='skip-used.png')
         lifelineskipButton.config(activebackground='black', bg='black', cursor='')
-        say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B .{next_question["options"][1]} . option C . {next_question["options"][2]} . option D {next_question["options"][3]} ')
+        say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
 
 def lifeline_50_50():
     global lifeline_50_used, i
@@ -330,7 +330,7 @@ def start(e):
     optionButton4.bind('<Button-1>', select)
     
     playsound.playsound('next q.wav',block=False)
-    say(f'{questions_data[i]["question"]} \n option A .{questions_data[i]["options"][0]}\n . option B .{questions_data[i]["options"][1]} . option C .{questions_data[i]["options"][2]} . option D {questions_data[i]["options"][3]} ')
+    say(f'{questions_data[i]["question"]} \n option A . {questions_data[i]["options"][0]}\n . option B . {questions_data[i]["options"][1]} . option C . {questions_data[i]["options"][2]} . option D . {questions_data[i]["options"][3]} ')
 
 # Create the start button
 bgimag = PhotoImage(file='bg.png')
