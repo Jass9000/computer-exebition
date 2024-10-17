@@ -333,16 +333,16 @@ def start(e):
     say(f'{questions_data[i]["question"]} \n option A . {questions_data[i]["options"][0]}\n . option B . {questions_data[i]["options"][1]} . option C . {questions_data[i]["options"][2]} . option D . {questions_data[i]["options"][3]} ')
 
 # Create the start button
-bgimag = PhotoImage(file='bg.png')
+bgimag = PhotoImage(file='kbc1.png')
 bgimage = Label(root, image=bgimag, bd=0)
-bgimage.place(x=-0, y=0)
+bgimage.place(x=0, y=0)
 
 
 play_photo = PhotoImage(file='play.png')
 
 # Create the play button with transparent image
 startbutton = Button(root, image=play_photo, bd=0, bg='black', activebackground='black', cursor='hand2', width=180, height=80)
-startbutton.place(x=360, y=111)
+startbutton.place(x=645, y=750)
 startbutton.bind('<Button-1>', start)
 
 root.mainloop()
