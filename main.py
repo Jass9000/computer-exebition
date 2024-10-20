@@ -250,7 +250,7 @@ def display_winnings(index):
     # Delay playing the sound until after the screen has updated
     playsound.playsound("end.mp3")
 
-def start(e):
+def start():
     global leftframe, topFrame, centerFrame, bottomFrame, rightframe
     global lifeline50Button, imagephoneAFriend, lifelineskipButton, logoLabel, amountLabel, layoutLabel, questionArea
     global labelA, optionButton1, labelB, optionButton2, labelC, optionButton3, labelD, optionButton4
@@ -341,8 +341,7 @@ bgimage.place(x=0, y=0)
 play_photo = PhotoImage(file='play.png')
 
 # Create the play button with transparent image
-startbutton = Button(root, image=play_photo, bd=0, bg='black', activebackground='black', cursor='hand2', width=180, height=80)
+startbutton = Button(root, image=play_photo, bd=0, bg='black', activebackground='black', cursor='hand2', width=180, height=80,command=start)
 startbutton.place(x=645, y=750)
-startbutton.bind('<Button-1>', start)
 
 root.mainloop()
