@@ -222,7 +222,7 @@ def lifeline_50_50():
         correct_answer = current_question["answer"]
         options = current_question["options"]
         incorrect_options = [option for option in options if option != correct_answer]
-
+       
         options_to_remove = random.sample(incorrect_options, 2)
 
         for option in options_to_remove:
@@ -234,10 +234,12 @@ def lifeline_50_50():
                 optionButton3.config(text="")
             elif option == options[3]:
                 optionButton4.config(text="")
-
+    
         lifeline_50_used = True  # Mark 50-50 lifeline as used
         lifeline50Button.config(activebackground='black', bg='black', cursor='')
         image50.config(file='50-50-used.png')
+        root.update()
+        playsound.playsound("after50.mp3")
 
 def display_winnings(index):
     # Stop the game and show the amount won
