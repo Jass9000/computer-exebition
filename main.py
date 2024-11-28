@@ -24,16 +24,12 @@ root.geometry('1440x900+0+0')
 root.title('Kaun Banega Crorepati')
 root.config(bg='black')
 
-questions_data = [
+questions= [
+    # Easy
     {
         "question": "What is the capital of the Indian state of Maharashtra?",
         "options": ["Pune", "Mumbai", "Nashik", "Nagpur"],
         "answer": "Mumbai"
-    },
-    {
-        "question": "The speed of Sound is maximum in which of the following?",
-        "options": ["Air at 100°C", "Air at 0°C", "Vaccum", "Same in all"],
-        "answer": "Air at 100°C"
     },
     {
         "question": "Who is the father of Computers?",
@@ -46,6 +42,28 @@ questions_data = [
         "answer": "4"
     },
     {
+        "question": "What is the largest ocean on Earth?",
+        "options": ["Indian Ocean", "Atlantic Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "answer": "Pacific Ocean"
+    },
+    {
+        "question": "Who is the lead actor in the movie 'PK'?",
+        "options": ["Shah Rukh Khan", "Aamir Khan", "Salman Khan", "Hrithik Roshan"],
+        "answer": "Aamir Khan"
+    },
+    {
+        "question": "Which country is known as the Land of the Rising Sun?",
+        "options": ["China", "Thailand", "Japan", "South Korea"],
+        "answer": "Japan"
+    },
+
+    # Medium
+    {
+        "question": "The speed of Sound is maximum in which of the following?",
+        "options": ["Air at 100°C", "Air at 0°C", "Vaccum", "Same in all"],
+        "answer": "Air at 100°C"
+    },
+    {
         "question": "Which one of the following salts does not contain water of crystallisation?",
         "options": ["Blue vitriol", "Baking soda", "Washing soda", "Gypsum"],
         "answer": "Baking soda"
@@ -56,19 +74,9 @@ questions_data = [
         "answer": "32"
     },
     {
-        "question": "What is the largest ocean on Earth?",
-        "options": ["Indian Ocean", "Atlantic Ocean", "Arctic Ocean", "Pacific Ocean"],
-        "answer": "Pacific Ocean"
-    },
-    {
         "question": "What is the chemical formula for methane?",
         "options": ["CH3", "CH4", "C2H4", "CH2O"],
         "answer": "CH4"
-    },
-    {
-        "question": "Who is the lead actor in the movie 'PK'?",
-        "options": ["Shah Rukh Khan", "Aamir Khan", "Salman Khan", "Hrithik Roshan"],
-        "answer": "Aamir Khan"
     },
     {
         "question": "Who is the captain of the Indian cricket team as of 2023?",
@@ -76,10 +84,17 @@ questions_data = [
         "answer": "Rohit Sharma"
     },
     {
-        "question": "Which Indian cricketer was known for his famous ' Helicopter Shot'?",
+        "question": "Which Indian cricketer was known for his famous 'Helicopter Shot'?",
         "options": ["Sachin Tendulkar", "MS Dhoni", "Virat Kohli", "Yuvraj Singh"],
         "answer": "MS Dhoni"
     },
+    {
+        "question": "In which layer of Earth's atmosphere does the ozone layer exist?",
+        "options": ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+        "answer": "Stratosphere"
+    },
+
+    # Hard
     {
         "question": "What is the name of the fictional African country in 'Black Panther'?",
         "options": ["Wakanda", "Zamunda", "Genosha", "Elbonia"],
@@ -90,12 +105,12 @@ questions_data = [
         "options": ["Canada", "Russia", "United States", "India"],
         "answer": "Canada"
     },
-     {
+    {
         "question": "Who painted the 'Last Supper'?",
         "options": ["Michelangelo", "Leonardo da Vinci", "Raphael", "Donatello"],
         "answer": "Leonardo da Vinci"
     },
-     {
+    {
         "question": "Who Invented The First Smartphone?",
         "options": ["Ronald Wayne", "Steve Jobs", "Frank Canova", "Steve Wozniak"],
         "answer": "Frank Canova"
@@ -106,43 +121,35 @@ questions_data = [
         "answer": "Alan Kay"
     },
     {
-    "question": "Which boxer was nicknamed 'The Brown Bomber'?",
-    "options": ["Muhammad Ali", "Mike Tyson", "Joe Frazier", "Joe Louis"],
-    "answer": "Joe Louis"
+        "question": "Which boxer was nicknamed 'The Brown Bomber'?",
+        "options": ["Muhammad Ali", "Mike Tyson", "Joe Frazier", "Joe Louis"],
+        "answer": "Joe Louis"
     },
     {
-    "question": "In which layer of Earth's atmosphere does the ozone layer exist?",
-    "options": ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
-    "answer": "Stratosphere"
+        "question": "In statistics, what is the term for the middle value in a set of numbers?",
+        "options": ["Mean", "Median", "Mode", "Range"],
+        "answer": "Median"
     },
     {
-    "question": "Which country is known as the Land of the Rising Sun?",
-    "options": ["China", "Thailand", "Japan", "South Korea"],
-    "answer": "Japan"
+        "question": "Who was the last ruler of the Mughal Empire in India?",
+        "options": ["Bahadur Shah II", "Akbar II", "Aurangzeb", "Shah Jahan"],
+        "answer": "Bahadur Shah II"
     },
     {
-    "question": "In statistics, what is the term for the middle value in a set of numbers?",
-    "options": ["Mean", "Median", "Mode", "Range"],
-    "answer": "Median"
+        "question": "What is the speed of light in a vacuum?",
+        "options": ["3 x 10^6 m/s", "3 x 10^8 m/s", "3 x 10^10 m/s", "3 x 10^12 m/s"],
+        "answer": "3 x 10^8 m/s"
     },
     {
-    "question": "Who was the last ruler of the Mughal Empire in India?",
-    "options": ["Bahadur Shah II", "Akbar II", "Aurangzeb", "Shah Jahan"],
-    "answer": "Bahadur Shah II"
-    },
-    {
-    "question": "What is the speed of light in a vacuum?",
-    "options": ["3 x 10^6 m/s", "3 x 10^8 m/s", "3 x 10^10 m/s", "3 x 10^12 m/s"],
-    "answer": "3 x 10^8 m/s"
-    },
-    {
-    "question": "Which acid is known as the king of chemicals?",
-    "options": ["Sulfuric Acid", "Nitric Acid", "Hydrochloric Acid", "Acetic Acid"],
-    "answer": "Sulfuric Acid"
-    },
-
-
+        "question": "Which acid is known as the king of chemicals?",
+        "options": ["Sulfuric Acid", "Nitric Acid", "Hydrochloric Acid", "Acetic Acid"],
+        "answer": "Sulfuric Acid"
+    }
 ]
+
+
+
+questions_data = random.choices(questions,k=16)
 
 # Load amount images
 amountImages = [PhotoImage(file=f'p{i}.png') for i in range(1, 17)]
@@ -221,9 +228,11 @@ def lifeline_50_50():
         current_question = questions_data[i]
         correct_answer = current_question["answer"]
         options = current_question["options"]
-        incorrect_options = [option for option in options if option != correct_answer]
+        for option in options:
+            if option != correct_answer:
+                incorrect_options = option
        
-        options_to_remove = random.sample(incorrect_options, 2)
+        options_to_remove = random.sample(incorrect_options, 2) # Select
 
         for option in options_to_remove:
             if option == options[0]:
