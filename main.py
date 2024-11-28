@@ -20,10 +20,10 @@ lifeline_50_used = False  # Flag to track if 50-50 lifeline has been used
 phone_used=False
 root = Tk()
 root.attributes('-fullscreen', True)
-root.geometry('1440x900+0+0')
+
 root.title('Kaun Banega Crorepati')
 root.config(bg='black')
-
+global questions_data
 questions= [
     # Easy
     {
@@ -146,10 +146,14 @@ questions= [
         "answer": "Sulfuric Acid"
     }
 ]
+def question_selection():  # Question selection
+    global questions_data
+    q_ind=sorted( random.sample(range( len(questions) ),16) )
+    questions_data=[questions[i] for i in q_ind]
 
 
 
-questions_data = random.choices(questions,k=16)
+question_selection()
 
 # Load amount images
 amountImages = [PhotoImage(file=f'p{i}.png') for i in range(1, 17)]
@@ -228,9 +232,8 @@ def lifeline_50_50():
         current_question = questions_data[i]
         correct_answer = current_question["answer"]
         options = current_question["options"]
-        for option in options:
-            if option != correct_answer:
-                incorrect_options = option
+        
+        incorrect_options = [option for option in options if option != correct_answer]
        
         options_to_remove = random.sample(incorrect_options, 2) # Select
 
