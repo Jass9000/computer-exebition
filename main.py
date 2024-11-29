@@ -186,11 +186,11 @@ def select(event):
 
             
         else:
-            display_winnings(i)  # If all questions are answered, display final winnings
+            display_winnings(i,False)  # If all questions are answered, display final winnings
     else:
         playsound.playsound("lose.wav")
         time.sleep(1)
-        display_winnings(i)  # Display the amount won before the wrong answer
+        display_winnings(i,True)  # Display the amount won before the wrong answer
 
 def phone():
     global i,phone_used
@@ -210,7 +210,8 @@ def phone():
 
 def skip_question():
     global i, skip_used
-    if not skip_used and i < len(questions_data) - 1:  # Check if skip hasn't been used and if there is a next question
+    #if not skip_used and i < len(questions_data) - 1:  # Check if skip hasn't been used and if there is a next question
+    if True:
         playsound.playsound("next q.wav",block=FALSE)
         skip_used = True  # Set the skip flag to True
         i += 1  # Move to the next question
@@ -224,7 +225,7 @@ def skip_question():
         amountLabel.config(image=amountImages[i])
         imageskip.config(file='skip-used.png')
         lifelineskipButton.config(activebackground='black', bg='black', cursor='')
-        say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
+        #say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
 
 def lifeline_50_50():
     global lifeline_50_used, i
@@ -253,22 +254,30 @@ def lifeline_50_50():
         root.update()
         playsound.playsound("after50.mp3")
 
-def display_winnings(index):
+def display_winnings(index,incorect):
     # Stop the game and show the amount won
     for widget in root.winfo_children():
         widget.destroy()
-    displaytext = f"Wrong answer correct answer was {questions_data[index]['answer']}. You won {prize_money[index]}!" if index < 16 else f"You won {prize_money[index]}!" # Shows the right answer if incorrect
+    if incorect:
+        displaytext = f"You selected the wrong answer correct answer was {questions_data[index]['answer']}.\n You won {prize_money[index]}!"  # Shows the right answer if incorrect
+    elif index == 16:
+        displaytext=f"You won {prize_money[index]}!"
+    else:
+        displaytext= f"Correct answer was {questions_data[index]['answer']}.\n You won {prize_money[index]}!"
     won_label = Label(root, text=displaytext, font=("Arial", 30), bg='cyan', fg='black')
     won_label.pack(expand=True)
     root.update()
     # Delay playing the sound until after the screen has updated
     playsound.playsound("end.mp3")
-
+def giveup():
+    display_winnings(i,False)
+    
 def start():
     global leftframe, topFrame, centerFrame, bottomFrame, rightframe
     global lifeline50Button, imagephoneAFriend, lifelineskipButton, logoLabel, amountLabel, layoutLabel, questionArea
     global labelA, optionButton1, labelB, optionButton2, labelC, optionButton3, labelD, optionButton4
     global image50, phoneAFriend, imageskip, centerImage, layoutImage, questions_data, startbutton
+    global imagegiveup,giveupButton
 
     # Destroy the start button after clicking
     startbutton.destroy()
@@ -302,6 +311,10 @@ def start():
     imageskip = PhotoImage(file='skip.png')
     lifelineskipButton = Button(topFrame, image=imageskip, bg='black', bd=0, activebackground='yellow', width=180, height=80, cursor='hand2', command=skip_question)
     lifelineskipButton.grid(row=0, column=2)
+
+    imagegiveup=PhotoImage(file="giveup.png")
+    giveupButton=Button(topFrame,image=imagegiveup, bg='black', bd=0, activebackground='yellow', width=180, height=80, cursor='hand2', command=giveup)
+    giveupButton.grid(row=0,column=3)
 
     centerImage = PhotoImage(file='logokbc.png')
     logoLabel = Label(centerFrame, image=centerImage, bg='black', width=300, height=200, bd=0)
