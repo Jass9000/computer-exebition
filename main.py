@@ -89,9 +89,19 @@ questions= [
         "answer": "MS Dhoni"
     },
     {
+    "question": "Who was the first person to reach the South Pole?",
+    "options": ["Robert Scott", "Ernest Shackleton", "Roald Amundsen", "Richard Byrd"],
+    "answer": "Roald Amundsen"
+    },
+    {
         "question": "In which layer of Earth's atmosphere does the ozone layer exist?",
         "options": ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
         "answer": "Stratosphere"
+    },
+    {
+    "question": "Who was the first woman to win a Nobel Prize?",
+    "options": ["Marie Curie", "Rosalind Franklin", "Dorothy Crowfoot Hodgkin", "Lise Meitner"],
+    "answer": "Marie Curie"
     },
 
     # Hard
@@ -139,6 +149,11 @@ questions= [
         "question": "What is the speed of light in a vacuum?",
         "options": ["3 x 10^6 m/s", "3 x 10^8 m/s", "3 x 10^10 m/s", "3 x 10^12 m/s"],
         "answer": "3 x 10^8 m/s"
+    },
+    {
+    "question": "Which mathematical constant is approximately 2.71828?",
+    "options": ["Pi", "Euler's number", "Golden ratio", "Square root of 2"],
+    "answer": "Euler's number"
     },
     {
         "question": "Which acid is known as the king of chemicals?",
