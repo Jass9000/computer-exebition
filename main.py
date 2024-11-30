@@ -47,6 +47,11 @@ questions= [
         "answer": "Pacific Ocean"
     },
     {
+    "question": "What is the unit of force in the SI system?",
+    "options": ["Newton", "Pascal", "Joule", "Watt"],
+    "answer": "Newton"
+    },
+    {
         "question": "Who is the lead actor in the movie 'PK'?",
         "options": ["Shah Rukh Khan", "Aamir Khan", "Salman Khan", "Hrithik Roshan"],
         "answer": "Aamir Khan"
@@ -56,6 +61,11 @@ questions= [
         "options": ["China", "Thailand", "Japan", "South Korea"],
         "answer": "Japan"
     },
+    {
+    "question": "Which state in India is the leading producer of manganese?",
+    "options": ["Odisha", "Maharashtra", "Karnataka", "Jharkhand"],
+    "answer": "Odisha"
+    },
 
     # Medium
     {
@@ -64,9 +74,24 @@ questions= [
         "answer": "Air at 100°C"
     },
     {
+    "question": "Which treaty ended the First World War?",
+    "options": ["Treaty of Versailles", "Treaty of Vienna", "Treaty of Paris", "Treaty of Westphalia"],
+    "answer": "Treaty of Versailles"
+    },
+    {
         "question": "Which one of the following salts does not contain water of crystallisation?",
         "options": ["Blue vitriol", "Baking soda", "Washing soda", "Gypsum"],
         "answer": "Baking soda"
+    },
+    {
+    "question": "Which acid is commonly used in car batteries?",
+    "options": ["Nitric acid", "Sulphuric acid", "Hydrochloric acid", "Acetic acid"],
+    "answer": "Sulphuric acid"
+    },
+    {
+    "question": "What is the value of (2x + 3)² when x = 1?",
+    "options": ["16", "9", "25", "36"],
+    "answer": "25"
     },
     {
         "question": "What is the value of the expression 2^5?",
@@ -100,7 +125,7 @@ questions= [
     },
     {
     "question": "Who was the first woman to win a Nobel Prize?",
-    "options": ["Marie Curie", "Rosalind Franklin", "Dorothy Crowfoot Hodgkin", "Lise Meitner"],
+    "options": ["Marie Curie", "Rosalind Franklin", "Indira Gandhi", "Lise Meitner"],
     "answer": "Marie Curie"
     },
 
@@ -109,6 +134,21 @@ questions= [
         "question": "What is the name of the fictional African country in 'Black Panther'?",
         "options": ["Wakanda", "Zamunda", "Genosha", "Elbonia"],
         "answer": "Wakanda"
+    },
+    {
+    "question": "Which phenomenon explains why the sky appears blue?",
+    "options": ["Refraction", "Dispersion", "Scattering", "Diffraction"],
+    "answer": "Scattering"
+    },
+    {
+    "question": "Which sector of the Indian economy contributes the largest share to GDP?",
+    "options": ["Agriculture", "Industry", "Services", "Manufacturing"],
+    "answer": "Services"
+    },
+    {
+    "question": "A ray of light strikes a plane mirror at an angle of 30° with the surface of the mirror. What is the angle of reflection?",
+    "options": ["30°", "60°", "90°", "45°"],
+    "answer": "60°"
     },
     {
         "question": "Which country has the most natural lakes?",
