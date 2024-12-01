@@ -461,6 +461,7 @@ def start():
     optionButton2.bind('<Button-1>', select)
     optionButton3.bind('<Button-1>', select)
     optionButton4.bind('<Button-1>', select)
+    root.update()
     
     playsound.playsound('next q.wav')
     say(f'{questions_data[i]["question"]} \n option A . {questions_data[i]["options"][0]}\n . option B . {questions_data[i]["options"][1]} . option C . {questions_data[i]["options"][2]} . option D . {questions_data[i]["options"][3]} ')
