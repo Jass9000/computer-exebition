@@ -1,13 +1,11 @@
 from tkinter import *
 import playsound
-import time
 import random
 import pyttsx3
 
 
 def say(a:str):
     root.update()
-    time.sleep(2)
     say=pyttsx3.init()
     say.say(a)
     say.runAndWait()
@@ -209,7 +207,9 @@ def question_selection():  # Question selection
 
 
 question_selection()
-
+yellowLayout=[PhotoImage(file=f'y{i}.png') for i in range(1,5)]
+redLayout=[PhotoImage(file=f'r{i}.png') for i in range(1, 5)]
+greenLayout=[PhotoImage(file=f'g{i}.png') for i in range(1, 5)]
 # Load amount images
 amountImages = [PhotoImage(file=f'p{i}.png') for i in range(1, 17)]
 prize_money = [
@@ -223,13 +223,24 @@ def select(event):
     a = event.widget
     value = a['text']
     current_question = questions_data[i]
+    for index in range(0, 4):
+        text = current_question["options"][index]
+        if value == text:
+            break
+    changebg(index + 1, "y")
+    root.update()
 
+
+    global i
     if value == current_question["answer"]:
+        changebg(index + 1, "g")
         playsound.playsound("clap.wav")
+
         questionArea.delete(1.0, END)
         i += 1  # Move to the next question
         if i < 16:  # Ensure i doesn't exceed available questions
             next_question = questions_data[i]
+            changebg(0,"reset")
             questionArea.insert(END, next_question["question"])
             optionButton1.config(text=next_question["options"][0])
             optionButton2.config(text=next_question["options"][1])
@@ -237,15 +248,14 @@ def select(event):
             optionButton4.config(text=next_question["options"][3])
             amountLabel.config(image=amountImages[i])
             playsound.playsound("next q.wav", block=False)
-            say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
-
-            
         else:
-            display_winnings(i,False)  # If all questions are answered, display final winnings
+            display_winnings(i, False)  # If all questions are answered, display final winnings
     else:
+        changebg(index + 1, "r")
         playsound.playsound("lose.wav")
-        time.sleep(1)
-        display_winnings(i,True)  # Display the amount won before the wrong answer
+        root.after(1000, lambda: display_winnings(i, True))  # 1-second delay before showing winnings
+
+
 
 def phone():
     global i,phone_used
@@ -326,17 +336,47 @@ def display_winnings(index,incorect):
     playsound.playsound("end.mp3")
 def giveup():
     display_winnings(i,False)
+
+def changebg(option_index, state):
+    if state == "y":
+        optButton[option_index].config(bg="yellow")  # Highlight the selected option
+        layoutLabel.config(image=yellowLayout[option_index-1])
+        optlabel[option_index].config(bg="yellow")
+        root.update()
+    elif state == "r":
+        optButton[option_index].config(bg="red")  # Highlight the selected option
+        layoutLabel.config(image=redLayout[option_index-1])
+        optlabel[option_index].config(bg="red")
+        root.update()
+    elif state == "g":
+        optButton[option_index].config(bg="green")  # Highlight the selected option
+        layoutLabel.config(image=greenLayout[option_index-1])
+        optlabel[option_index].config(bg="green")
+        root.update()
+    elif state=="reset":
+        layoutLabel.config(image=layoutImage)
+        for option_index in range(1,5):
+            optButton[option_index].config(bg="black")
+            optlabel[option_index].config(bg="black")
+
+
+
+
+
+
     
 def start():
     global leftframe, topFrame, centerFrame, bottomFrame, rightframe
     global lifeline50Button, imagephoneAFriend, lifelineskipButton, logoLabel, amountLabel, layoutLabel, questionArea
-    global labelA, optionButton1, labelB, optionButton2, labelC, optionButton3, labelD, optionButton4
+    global  optionButton1,  optionButton2,  optionButton3, optionButton4
     global image50, phoneAFriend, imageskip, centerImage, layoutImage, questions_data, startbutton
     global imagegiveup,giveupButton
-
+    global optlabel ,optButton
+    optlabel = [""]
+    optButton=[""]
     # Destroy the start button after clicking
     startbutton.destroy()
-    playsound.playsound("amitabh.wav")
+    #playsound.playsound("amitabh.wav")
     bgimage.destroy()
 
     leftframe = Frame(root, bg='black', padx=90)
@@ -388,23 +428,31 @@ def start():
 
     labelA = Label(bottomFrame, text='A:', bg='black', fg='white', font=('arial', 16, 'bold'))
     labelA.place(x=60, y=135)
+    optlabel.append(labelA)
     optionButton1 = Button(bottomFrame, text=questions_data[i]["options"][0], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
     optionButton1.place(x=100, y=125)
+    optButton.append(optionButton1)
 
     labelB = Label(bottomFrame, text='B:', bg='black', fg='white', font=('arial', 16, 'bold'))
     labelB.place(x=400, y=135)
+    optlabel.append(labelB)
     optionButton2 = Button(bottomFrame, text=questions_data[i]["options"][1], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
     optionButton2.place(x=430, y=125)
+    optButton.append(optionButton2)
 
     labelC = Label(bottomFrame, text='C:', bg='black', fg='white', font=('arial', 16, 'bold'))
     labelC.place(x=60, y=235)
+    optlabel.append(labelC)
     optionButton3 = Button(bottomFrame, text=questions_data[i]["options"][2], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
     optionButton3.place(x=100, y=225)
+    optButton.append(optionButton3)
 
     labelD = Label(bottomFrame, text='D:', bg='black', fg='white', font=('arial', 16, 'bold'))
     labelD.place(x=400, y=235)
+    optlabel.append(labelD)
     optionButton4 = Button(bottomFrame, text=questions_data[i]["options"][3], bg='black', fg='white', font=('arial', 18, 'bold'), bd=0, activebackground='black', activeforeground='white', cursor='hand2')
     optionButton4.place(x=430, y=225)
+    optButton.append(optionButton4)
 
     optionButton1.bind('<Button-1>', select)
     optionButton2.bind('<Button-1>', select)
@@ -412,7 +460,7 @@ def start():
     optionButton4.bind('<Button-1>', select)
     
     playsound.playsound('next q.wav',block=False)
-    say(f'{questions_data[i]["question"]} \n option A . {questions_data[i]["options"][0]}\n . option B . {questions_data[i]["options"][1]} . option C . {questions_data[i]["options"][2]} . option D . {questions_data[i]["options"][3]} ')
+    #say(f'{questions_data[i]["question"]} \n option A . {questions_data[i]["options"][0]}\n . option B . {questions_data[i]["options"][1]} . option C . {questions_data[i]["options"][2]} . option D . {questions_data[i]["options"][3]} ')
 
 # Create the start button
 bgimag = PhotoImage(file='kbc1.png')
