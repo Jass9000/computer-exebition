@@ -265,8 +265,8 @@ def phone():
 
 def skip_question():
     global i, skip_used
-    #if not skip_used and i < len(questions_data) - 1:  # Check if skip hasn't been used and if there is a next question
-    if True:
+    if not skip_used and i < len(questions_data) - 1:  # Check if skip hasn't been used and if there is a next question
+    
         playsound.playsound("next q.wav",block=FALSE)
         skip_used = True  # Set the skip flag to True
         i += 1  # Move to the next question
@@ -280,7 +280,7 @@ def skip_question():
         amountLabel.config(image=amountImages[i])
         imageskip.config(file='skip-used.png')
         lifelineskipButton.config(activebackground='black', bg='black', cursor='')
-        #say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
+        say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
 
 def lifeline_50_50():
     global lifeline_50_used, i
