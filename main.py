@@ -360,6 +360,7 @@ def changebg(option_index, state):
         for option_index in range(1,5):
             optButton[option_index].config(bg="black")
             optlabel[option_index].config(bg="black")
+    root.update()
 
 
 
