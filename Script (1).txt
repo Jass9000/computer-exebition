@@ -6,10 +6,10 @@ Arav:With the help of our operators at the back end Daksh and Zaid We have made 
 India's Famous show Kaun Banega Crorepati. KBC is a game in which you have to answer the questions,and climb up the prize ladder
 but with a twist that you will win absolutely no money.
 Devang:Because we are not sponsored by Ambani or Adani.
-Devang:You get lifelines like 50-50 which makes you try out your luck, Phone a Friend, they are reliable but overconfident,
-and Skip to help you out, but don’t expect ₹7 crore and give up like our hopes after the exams.
+Devang:You get lifelines like 50-50 which makes you try out your luck, "Phone a Friend" mostly correct but can be wrong
+, "Skip" to help you out and "give up" not an life line but used to give up like our hopes after the exams.
 Arav:Now we request our operator to display the program.
-(Displaying the program)
+(Displaying the program) 
 (Program ends*)
 Body:-
 Arav:Now let us get to the source code of the program. So I request my operator to show you all the source code of the program.
