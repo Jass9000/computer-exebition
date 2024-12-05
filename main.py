@@ -466,7 +466,7 @@ def start():
     playsound.playsound('next q.wav')
     say(f'{questions_data[i]["question"]} \n option A . {questions_data[i]["options"][0]}\n . option B . {questions_data[i]["options"][1]} . option C . {questions_data[i]["options"][2]} . option D . {questions_data[i]["options"][3]} ')
 
-# Create the start button
+# Create the baground image
 bgimag = PhotoImage(file='kbc1.png')
 bgimage = Label(root, image=bgimag, bd=0)
 bgimage.place(x=0, y=0)
