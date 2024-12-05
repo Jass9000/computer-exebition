@@ -4,35 +4,35 @@ Arav:My name is Arav.
 Devang:And I am Devang.
 Arav:With the help of our operators at the back end Daksh and Zaid We have made the game K.B.C taking the inspiration from one of
 India's Famous show Kaun Banega Crorepati. KBC is a game in which you have to answer the questions,and climb up the prize ladder
-but with a twist that you will win absolutely no money.
-Devang:Because we are not sponsored by Ambani or Adani.
-Devang:You get lifelines like 50-50 which makes you try out your luck, "Phone a Friend" mostly correct but can be wrong
-, "Skip" to help you out and "give up" not an life line but used to give up like our hopes after the exams.
+but wait a second there is a twist that you will win absolutely no money.
+Devang:Because we are not sponsored by Adani or Ambani.
+Arav:You get lifelines like 50-50 which removes 2 incorrect answers, "Phone a Friend" mostly gives correct answer but can be wrong
+, "Skip" to jump on to the next question and "give up" not a life line but is used to give up like our hopes after the exams.
 Arav:Now we request our operator to display the program.
 (Displaying the program) 
 (Program ends*)
 Body:-
-Arav:Now let us get to the source code of the program. So I request my operator to show you all the source code of the program.
+Arav:Let us get to the source code of the program.
 Operator:-
 ln no.1 to 4
 Devang:Our game is developed in python language using the packages playsound,random,pyttsx3 and tkinter.
 Devang:Playsound is used to play audio files used in the game.
 Devang:pyttsx3 is the text to speech package used to read out the questions and the options provided.
 Devang:tkinter is used to make the G.U.I. of the game.
-Devang:And lastly random is used to randomly select the question to be diaplayed on the game.
+Devang:And lastly random is used to randomly select the question to be displayed on the game.
 Ln no. 475 to 479
 Arav:This part of the code will create the background image of the starting scene.
 ln no. 469 to 472
-Arav:This part of the code will create the play button of the game to start up the game.
+Arav:This part of the code will create the play button to start up the game.
 ln no.371
 Devang:The start function will load and display all the labels,buttons and images of our game.
-Devang:Now let us get to the technical part.
 ln no.342 to 363
 Devang:This method highlights the background of the options,yellow if selected,green when the selected option is correct,red 
-if the answer is wrong and by default the option matches the background colour that's balck.
+if the answer is wrong and by default the option matches the background colour that's black.
 ln no.202 to 205
-Devang:This fuction will randomly select 16 question without the repetition of any of the question.
+Devang:This fuction will randomly select 16 question  from total list of questions without the repetition of any of the question.
 ln no.22 to 23
-Devang:This reveals the title of the game and also alters its background
+Devang:This sets the title of the game and also alters its background
 Conclusion:-
 Arav:Coming to the end we hope you all enjoyed the program that was designed to offer a fun and interactive quiz experience with such an enormous budget.
+Arav:Thanking you we hope that you liked our project.
