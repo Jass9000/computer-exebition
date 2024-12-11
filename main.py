@@ -4,9 +4,10 @@ import random
 import pyttsx3
 
 
-def say(a:str):
+def say(a:str, rate:int=200):
     root.update()
     say=pyttsx3.init()
+    say.setProperty('rate', rate)
     say.say(a)
     say.runAndWait()
 
@@ -199,14 +200,18 @@ questions= [
         "answer": "Sulfuric Acid"
     }
 ]
+
+
 def question_selection():  # Question selection
     global questions_data
-    q_ind=sorted( random.sample(range( len(questions) ),16) )
+    q_ind=sorted( random.sample(range( len(questions) ),16) ) #Generates 16 numbers which 
     questions_data=[questions[i] for i in q_ind]
 
 
 
 question_selection()
+
+
 yellowLayout=[PhotoImage(file=f'y{i}.png') for i in range(1,5)]
 redLayout=[PhotoImage(file=f'r{i}.png') for i in range(1, 5)]
 greenLayout=[PhotoImage(file=f'g{i}.png') for i in range(1, 5)]
@@ -230,9 +235,6 @@ def select(event):
     changebg(index + 1, "y")
     root.update()
     playsound.playsound("lock.wav")
-
-
-
     if value == current_question["answer"]:
         changebg(index + 1, "g")
         playsound.playsound("clap.wav")
@@ -272,7 +274,7 @@ def phone():
         phoneAFriend.config(activebackground='black', bg='black', cursor='')
         root.update()
         playsound.playsound("calling.mp3")
-        say(f"The answer maybe {option_by_friend}")
+        say(f"Hello everyone,My name is akash, The answer maybe {option_by_friend}",140)
         phone_used=True
 
 def skip_question():
@@ -295,7 +297,7 @@ def skip_question():
         say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
 
 def lifeline_50_50():
-    global lifeline_50_used, i
+    global lifeline_50_used, i 
     if not lifeline_50_used:
         current_question = questions_data[i]
         correct_answer = current_question["answer"]
@@ -364,10 +366,6 @@ def changebg(option_index, state):
 
 
 
-
-
-
-    
 def start():
     global leftframe, topFrame, centerFrame, bottomFrame, rightframe
     global lifeline50Button, imagephoneAFriend, lifelineskipButton, logoLabel, amountLabel, layoutLabel, questionArea
@@ -467,14 +465,12 @@ def start():
     say(f'{questions_data[i]["question"]} \n option A . {questions_data[i]["options"][0]}\n . option B . {questions_data[i]["options"][1]} . option C . {questions_data[i]["options"][2]} . option D . {questions_data[i]["options"][3]} ')
 
 # Create the baground image
-bgimag = PhotoImage(file='kbc1.png')
+bgimag = PhotoImage(file='bg.png')
 bgimage = Label(root, image=bgimag, bd=0)
 bgimage.place(x=0, y=0)
 
-
+# Create the play button 
 play_photo = PhotoImage(file='play.png')
-
-# Create the play button with transparent image
 startbutton = Button(root, image=play_photo, bd=0, bg='black', activebackground='black', cursor='hand2', width=180, height=80,command=start)
 startbutton.place(x=645, y=750)
 
