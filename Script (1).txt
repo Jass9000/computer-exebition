@@ -1,14 +1,12 @@
 Introduction:-
-Arav:Good Morning Principal ma'am,Vice principal ma'am,Teachers and all my fellow mates.
+Arav:Good Morning everyone.
 Arav:My name is Arav.
 Zaid:I am Zaid
 Devang:And I am Devang.
-Arav:With the help of our operator Daksh. We have made the game K.B.C taking the inspiration from one of
-India's Famous show Kaun Banega Crorepati. KBC is a game in which you have to answer the questions,and climb up the prize ladder
-but wait a second there is a twist that you will win absolutely no money.
+Arav:With the help of our operator Daksh. We have made the game K.B.C taking the inspiration from one of India's Famous show Kaun Banega Crorepati. KBC is a game in which you have to answer the questions,and climb up the prize ladder but wait wait wait there is a twist that you will win absolutely no money.
 Devang:Because we are not sponsored by Adani or Ambani
 Arav:So, play for fun, not for funds!"
-Zaid: "This code runs the game with questions, options, and lifelines like 50-50 which removes two incorrect answer, Phone-a-Friend which gives you mostly correct answer but can be wrong also like our decisions sometimes, and Skip which is used to jump to the next question. Answer correctly, and you’ll hear claps. If you get it wrong, well, the game gently shows you the door—but with style!"
+Zaid: "This code runs the game with questions, options, and lifelines like 50-50 which removes two incorrect options, Phone-a-Friend which gives you mostly correct answer but can be wrong also like our decisions sometimes, and Skip which is used to jump to the next question. Answer correctly, and you’ll hear claps. If you get it wrong, well, the game gently shows you the door—but with style!"
 Devang: "Oh, and there’s a robot voice that reads out the questions, like a low-budget Amitabh Bachchan. It’s here to make sure you feel like you’re in the hot seat."
 Arav: "The questions start easy, then get harder. We even added some random fun, like your friend giving you the wrong answer on the Phone-a-Friend lifeline. Classic, right?"
 Zaid: "So, sharpen your brains and get ready to play. Just remember—no crores, only cheers! Enjoy the game, learn something new, and laugh along the way."
@@ -18,26 +16,53 @@ Devang: "Let’s start! The real prize is proving how smart you are. And hey, no
 (Program ends*)
 Body:-
 Arav:Let us get to the source code of the program.
-Operator:-
-ln no.1 to 4
-Devang:Our game is developed in python language using the packages playsound,random,pyttsx3 and tkinter.
-Devang:Playsound is used to play audio files used in the game.
-Arav:pyttsx3 is the text to speech package used to read out the questions and the options provided.
-Devang:tkinter is used to make the G.U.I. of the game.
-Arav:And lastly random is used to randomly select the question to be displayed on the game.
-Ln no. 475 to 479
-Arav:This part of the code will create the background image of the starting scene.
-ln no. 469 to 472
-Devang:This part of the code will create the play button to start up the game.
-ln no.371
-Devang:The start function will load and display all the labels,buttons and images of our game.
-ln no.342 to 363
-Devang:This method highlights the background of the options,yellow if selected,green when the selected option is correct,red 
-if the answer is wrong and by default the option matches the background colour that's black.
-ln no.202 to 205
-Arav:This fuction will randomly select 16 question  from total list of questions without the repetition of any of the question.
-ln no.22 to 23
-Devang:This sets the title of the game and also alters its background
+
+ln no.1-4
+Arav:Our game is developed in python language and we have used packages like tkinter,playsound,random,pyttsx3 in our program.
+Arav:Tkinter is used to make the gui of the game
+Arav:playsound is used to play audio files used in the game
+Arav:random is used to randomly select 16 question
+Arav:pyttsx3 is used to convert text into speech 
+
+ln no 215-221
+Devang: This line will store the images of highlighted options and the amount images 
+
+ln no.205-208
+Devang:The select_question function will randomly generate 16 indexes from the total list of questions and store it in the question data variable
+
+ln no.228-234
+Devang:This part of the code will determine which option is selected by the user
+
+ln no.237-239
+Devang:This part of the funtion will highlight the selected option to yellow
+
+ln no.240-258
+Devang: This part of the funtion will change the question options and the prize for the next question if the answer is correct or the option was wrong display the won prize
+
+ln no.333
+Devang: change bg funtion will highlight the option selected
+
+ln no.266
+Devang: phone  Simulates "Phone a Friend," providing an answer with a 70% chance of correctness, updates visuals, and plays sounds.
+
+ln no.282
+Devang: skip_question Skips to the next question (if unused), updates the question, options, and UI visuals.
+
+ln no.301
+Devang: lifeline_50_50 Removes two incorrect options, updates button text, disables the lifeline, and plays a sound.
+
+ln no.330
+Devang: giveup  Ends the game, displaying winnings up to the current level.
+
+ln no.356
+Devang: The display winnings funtion will display the imaginary prise money that you have won by takeing 2 parameter index of question and boolian for if the question was correct 
+
+ln no.470-473
+Devang:This part of the code will create the background image of the starting scene
+
+ln no.475-478
+Devang:This part of the code will create the play button to start up the game 
+
 Conclusion:-
 Arav:Coming to the end we hope you all enjoyed the program that was designed to offer a fun and interactive quiz experience with such an enormous budget.
 Zaid:And that's it. No crores, no cash just fun and laughs. Play again for glory, not for money, cause we are broke too!

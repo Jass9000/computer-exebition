@@ -211,12 +211,14 @@ def question_selection():  # Question selection
 
 question_selection()
 
+#Load the images of highlited options in 3 list variable    
+yellowLayout=[PhotoImage(file=f'y{a}.png') for a in range(1,5)]
+redLayout=[PhotoImage(file=f'r{a}.png') for a in range(1, 5)]
+greenLayout=[PhotoImage(file=f'g{a}.png') for a in range(1, 5)]
 
-yellowLayout=[PhotoImage(file=f'y{i}.png') for i in range(1,5)]
-redLayout=[PhotoImage(file=f'r{i}.png') for i in range(1, 5)]
-greenLayout=[PhotoImage(file=f'g{i}.png') for i in range(1, 5)]
-# Load amount images
-amountImages = [PhotoImage(file=f'p{i}.png') for i in range(1, 17)]
+
+# Load the amount images
+amountImages = [PhotoImage(file=f'p{a}.png') for a in range(1, 17)]
 prize_money = [
     "₹0","₹1,000", "₹2,000","₹3,000","₹5,000", "₹10,000", "₹20,000", "₹40,000", 
     "₹80,000", "₹1,60,000", "₹3,20,000", "₹6,40,000", "₹12,50,000", 
@@ -323,21 +325,8 @@ def lifeline_50_50():
         root.update()
         playsound.playsound("after50.mp3")
 
-def display_winnings(index,incorect):
-    # Stop the game and show the amount won
-    for widget in root.winfo_children():
-        widget.destroy()
-    if incorect:
-        displaytext = f"You selected the wrong answer correct answer was {questions_data[index]['answer']}.\n You won {prize_money[index]}!"  # Shows the right answer if incorrect
-    elif index == 16:
-        displaytext=f"You won {prize_money[index]}!"
-    else:
-        displaytext= f"Correct answer was {questions_data[index]['answer']}.\n You won {prize_money[index]}!"
-    won_label = Label(root, text=displaytext, font=("Arial", 30), bg='cyan', fg='black')
-    won_label.pack(expand=True)
-    root.update()
-    # Delay playing the sound until after the screen has updated
-    playsound.playsound("end.mp3")
+
+
 def giveup():
     display_winnings(i,False)
 
@@ -364,7 +353,21 @@ def changebg(option_index, state):
             optlabel[option_index].config(bg="black")
     root.update()
 
-
+def display_winnings(index,incorect):
+    # Stop the game and show the amount won
+    for widget in root.winfo_children():
+        widget.destroy()
+    if incorect:
+        displaytext = f"You selected the wrong answer correct answer was {questions_data[index]['answer']}.\n You won {prize_money[index]}!"  # Shows the right answer if incorrect
+    elif index == 16:
+        displaytext=f"You won {prize_money[index]}!"
+    else:
+        displaytext= f"Correct answer was {questions_data[index]['answer']}.\n You won {prize_money[index]}!"
+    won_label = Label(root, text=displaytext, font=("Arial", 30), bg='cyan', fg='black')
+    won_label.pack(expand=True)
+    root.update()
+    # Delay playing the sound until after the screen has updated
+    playsound.playsound("end.mp3")
 
 def start():
     global leftframe, topFrame, centerFrame, bottomFrame, rightframe
