@@ -10,7 +10,7 @@ Zaid: "This code runs the game with questions, options, and lifelines like 50-50
 Devang: "Oh, and there’s a robot voice that reads out the questions, like a low-budget Amitabh Bachchan. It’s here to make sure you feel like you’re in the hot seat."
 Arav: "The questions start easy, then get harder. We even added some random fun, like your friend giving you the wrong answer on the Phone-a-Friend lifeline. Classic, right?"
 Zaid: "So, sharpen your brains and get ready to play. Just remember—no crores, only cheers! Enjoy the game, learn something new, and laugh along the way."
-Arav:Now we request our operator to display the program.
+Arav:Now we request our operator to start the game.
 Devang: "Let’s start! The real prize is proving how smart you are. And hey, no pressure—because we can’t afford any!"
 (Displaying the program) 
 (Program ends*)
