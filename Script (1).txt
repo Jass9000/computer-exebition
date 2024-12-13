@@ -43,20 +43,20 @@ ln no.333
 Devang: change bg funtion will highlight the option selected
 
 ln no.266
-Devang: This function handles PhoneAFriend lifeline,if player uses this lifeline,the bot will tell the answer with the probability of
+Arav: This function handles PhoneAFriend lifeline,if player uses this lifeline,the bot will tell the answer with the probability of
 70% right answer and 30% wrong answer and then updates It’s image. to prevent reusing of this lifeline,PhoneAFriend used variable is set 
 to true
 
 ln no.282
-Devang: Skip lifeline is used to jump to the next question if there are more level and then updates It’s image.Again,to prevent using of this
+Arav: Skip lifeline is used to jump to the next question if there are more level and then updates It’s image.Again,to prevent using of this
  lifeline by the player,skip used variable is set to true.
 
 ln no.301
-Devang: lifeline_50_50 Removes two incorrect options and then updates it's image.Here aslo the same logic goes, to prevent reuse of this
+Arav: lifeline_50_50 Removes two incorrect options and then updates it's image.Here aslo the same logic goes, to prevent reuse of this
 lifeline,lifeline50 variable is set to true.
 
 ln no.330
-Devang: giveup is a button in our game which Ends the game, displaying winnings up to which level the player has solved.
+Arav: giveup is a button in our game which Ends the game, displaying winnings up to which level the player has solved.
 
 ln no.356
 Devang: The display winnings funtion will display the imaginary prise money that you have won by takeing 2 parameter index of question and boolian for if the question was correct 
