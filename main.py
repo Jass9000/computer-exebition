@@ -204,8 +204,8 @@ questions= [
 
 def question_selection():  # Question selection
     global questions_data
-    q_ind=sorted( random.sample(range( len(questions) ),16) ) #Generates 16 numbers which 
-    questions_data=[questions[i] for i in q_ind]
+    q_ind=sorted( random.sample(range( len(questions) ),16) ) #Generates 16 index from the total list
+    questions_data=[questions[i] for i in q_ind] #Store the selected questions
 
 
 
@@ -234,9 +234,9 @@ def select(event):
         text = current_question["options"][index]
         if value == text:
             break
-    changebg(index + 1, "y")
+    changebg(index + 1, "y")  #Change the option colour to yellow
     root.update()
-    playsound.playsound("lock.wav")
+    playsound.playsound("lock.wav") 
     if value == current_question["answer"]:
         changebg(index + 1, "g")
         playsound.playsound("clap.wav")
