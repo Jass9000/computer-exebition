@@ -3,16 +3,19 @@ import playsound
 import random
 import pyttsx3
 
+dev=False #Turn this to false to stop question reading and greedings
 
 def say(a:str, rate:int=200):
-    root.update()
-    say=pyttsx3.init()
-    say.setProperty('rate', rate)
-    say.say(a)
-    say.runAndWait()
+    if True:
+        root.update()
+        say=pyttsx3.init()
+        say.setProperty('rate', rate)
+        say.say(a)
+        say.runAndWait()
 
 
 # Initialize i to track the current question, skip flag, and lifeline flag
+
 i = 0
 skip_used = False  # Flag to track if skip has been used
 lifeline_50_used = False  # Flag to track if 50-50 lifeline has been used
@@ -228,36 +231,36 @@ prize_money = [
 def select(event):
     global i
     a = event.widget
-    value = a['text']
+    value = a['text'] 
     current_question = questions_data[i]
-    for index in range(0, 4):
+    for index in range(0, 4):          #
         text = current_question["options"][index]
         if value == text:
             break
     changebg(index + 1, "y")  #Change the option colour to yellow
     root.update()
-    playsound.playsound("lock.wav") 
-    if value == current_question["answer"]:
-        changebg(index + 1, "g")
+    if dev: playsound.playsound("lock.wav") 
+    if value == current_question["answer"]:# Checking if the answer is correct
+        changebg(index + 1, "g") #Highlight the option to green
         playsound.playsound("clap.wav")
 
         questionArea.delete(1.0, END)
         i += 1  # Move to the next question
         if i < 16:  # Ensure i doesn't exceed available questions
             next_question = questions_data[i]
-            changebg(0,"reset")
+            changebg(0,"reset") # Reset the option colour
             questionArea.insert(END, next_question["question"])
             optionButton1.config(text=next_question["options"][0])
             optionButton2.config(text=next_question["options"][1])
             optionButton3.config(text=next_question["options"][2])
             optionButton4.config(text=next_question["options"][3])
             amountLabel.config(image=amountImages[i])
-            playsound.playsound("next q.wav",block=False)
-            root.after(2000,lambda: say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} '))
+            if dev: playsound.playsound("next q.wav",block=False)
+            if dev: root.after(2000,lambda: say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} '))
         else:
             display_winnings(i, False)  # If all questions are answered, display final winnings
     else:
-        changebg(index + 1, "r")
+        changebg(index + 1, "r") # Highlight the option to red
         playsound.playsound("lose.wav")
         root.after(1000, lambda: display_winnings(i, True))  # 1-second delay before showing winnings
 
@@ -265,7 +268,7 @@ def select(event):
 
 def phone():
     global i,phone_used
-    if not phone_used:
+    if not phone_used: # Check if the phone lifeline is used
         if 0.3>=random.random():
             wrong_options=[option for option in questions_data[i]["options"] if option != questions_data[i]["answer"]]
             option_by_friend=random.choice(wrong_options)
@@ -283,11 +286,11 @@ def skip_question():
     global i, skip_used
     if not skip_used and i < len(questions_data) - 1:  # Check if skip hasn't been used and if there is a next question
     
-        playsound.playsound("next q.wav",block=FALSE)
+
         skip_used = True  # Set the skip flag to True
         i += 1  # Move to the next question
         next_question = questions_data[i]
-        questionArea.delete(1.0, END)
+        questionArea.delete(1.0, END)   
         questionArea.insert(END, next_question["question"])
         optionButton1.config(text=next_question["options"][0])
         optionButton2.config(text=next_question["options"][1])
@@ -296,18 +299,19 @@ def skip_question():
         amountLabel.config(image=amountImages[i])
         imageskip.config(file='skip-used.png')
         lifelineskipButton.config(activebackground='black', bg='black', cursor='')
-        say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} ')
+        playsound.playsound("next q.wav",block=FALSE)        
+        root.after(2000,lambda: say(f'{next_question["question"]} \n option A . {next_question["options"][0]}\n . option B . {next_question["options"][1]} . option C . {next_question["options"][2]} . option D . {next_question["options"][3]} '))
 
 def lifeline_50_50():
     global lifeline_50_used, i 
-    if not lifeline_50_used:
+    if not lifeline_50_used: # Check if the 50-50 lifline is used
         current_question = questions_data[i]
         correct_answer = current_question["answer"]
         options = current_question["options"]
         
-        incorrect_options = [option for option in options if option != correct_answer]
+        incorrect_options = [option for option in options if option != correct_answer] # Storing all the incorrect options 
        
-        options_to_remove = random.sample(incorrect_options, 2) # Select
+        options_to_remove = random.sample(incorrect_options, 2) # Select the options which will be removed
 
         for option in options_to_remove:
             if option == options[0]:
@@ -331,18 +335,18 @@ def giveup():
     display_winnings(i,False)
 
 def changebg(option_index, state):
-    if state == "y":
-        optButton[option_index].config(bg="yellow")  # Highlight the selected option
+    if state == "y":                       
+        optButton[option_index].config(bg="yellow")  # Highlight the selected option to yellow 
         layoutLabel.config(image=yellowLayout[option_index-1])
         optlabel[option_index].config(bg="yellow")
         root.update()
     elif state == "r":
-        optButton[option_index].config(bg="red")  # Highlight the selected option
+        optButton[option_index].config(bg="red")  # Highlight the selected option to red
         layoutLabel.config(image=redLayout[option_index-1])
         optlabel[option_index].config(bg="red")
         root.update()
     elif state == "g":
-        optButton[option_index].config(bg="green")  # Highlight the selected option
+        optButton[option_index].config(bg="green")  # Highlight the selected option to green 
         layoutLabel.config(image=greenLayout[option_index-1])
         optlabel[option_index].config(bg="green")
         root.update()
@@ -380,10 +384,10 @@ def start():
     optButton=[""]
     # Destroy the start button after clicking
     startbutton.destroy()
-    playsound.playsound("amitabh.wav")
+    if dev: playsound.playsound("amitabh.wav")
     bgimage.destroy()
-
-    leftframe = Frame(root, bg='black', padx=90)
+     # Divide the screeen into 4 different section
+    leftframe = Frame(root, bg='black', padx=90)    
     leftframe.grid(row=0, column=0)
 
     topFrame = Frame(leftframe, bg='black', pady=15)
@@ -464,8 +468,8 @@ def start():
     optionButton4.bind('<Button-1>', select)
     root.update()
     
-    playsound.playsound('next q.wav')
-    say(f'{questions_data[i]["question"]} \n option A . {questions_data[i]["options"][0]}\n . option B . {questions_data[i]["options"][1]} . option C . {questions_data[i]["options"][2]} . option D . {questions_data[i]["options"][3]} ')
+    if dev: playsound.playsound('next q.wav')
+    if dev: say(f'{questions_data[i]["question"]} \n option A . {questions_data[i]["options"][0]}\n . option B . {questions_data[i]["options"][1]} . option C . {questions_data[i]["options"][2]} . option D . {questions_data[i]["options"][3]} ')
 
 # Create the baground image
 bgimag = PhotoImage(file='bg.png')
