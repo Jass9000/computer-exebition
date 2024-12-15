@@ -19,7 +19,7 @@ i = 0                     # keep track of which question is being
 skip_used = False         # track if skip lifeline has been used
 lifeline_50_used = False  # track if 50-50 lifeline  has been used
 phone_used=False          # track if phone lifeline has been used
-root = Tk()
+root = Tk()               #Initialisng the main window for GUI 
 root.attributes('-fullscreen', True)
 
 root.title('Kaun Banega Crorepati')
