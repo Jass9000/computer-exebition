@@ -1,13 +1,2 @@
-import pyttsx3
-voiceEngine = pyttsx3.init()
- 
-rate = voiceEngine.getProperty('rate')
-volume = voiceEngine.getProperty('volume')
-voice = voiceEngine.getProperty('voice')
- 
-print( rate)
-print (volume)
-print( voice)
- 
-
- 
+a=[1,2,3,4,5,6,"a",6,7,8,9]
+print(a.index("a"))
