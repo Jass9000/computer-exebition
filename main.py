@@ -229,10 +229,10 @@ prize_money = [
 
 def select(event):
     global i
-    a = event.widget
-    value = a['text'] 
+    a = event.widget # Retrieves the widget
+    value = a['text'] # Gets the text attribute of the widget 
     current_question = questions_data[i]
-    for index in range(0, 4):          #
+    for index in range(0, 4):          
         text = current_question["options"][index]
         if value == text:
             break
@@ -266,20 +266,29 @@ def select(event):
 
 
 def phone():
-    global i,phone_used
-    if not phone_used: # Check if the phone lifeline is used
-        if 0.3>=random.random():
-            wrong_options=[option for option in questions_data[i]["options"] if option != questions_data[i]["answer"]]
-            option_by_friend=random.choice(wrong_options)
+    global i, phone_used  # Access global variables for current question index and phone lifeline usage
+    if not phone_used:  # Check if the phone lifeline has been used
+        # Determine whether the friend provides the correct or wrong answer based on a 30% chance
+        if 0.3 >= random.random():
+            # If the random value is less than 0.3, simulate a wrong answer by choosing an incorrect option
+            wrong_options = [option for option in questions_data[i]["options"] if option != questions_data[i]["answer"]]
+            option_by_friend = random.choice(wrong_options)  # Friend picks a wrong option
         else:
-            option_by_friend=questions_data[i]["answer"]
-        
+            # Otherwise, the friend correctly answers
+            option_by_friend = questions_data[i]["answer"]
+        # Change the image to indicate the lifeline has been used
         imagephoneAFriend.config(file='phoneAFriend-used.png')
-        phoneAFriend.config(activebackground='black', bg='black', cursor='')
+        # Disable the phone-a-friend button to indicate it has been used
+        phoneAFriend.config(activebackground='black', bg='black', cursor='')  
+        # Update the window to reflect changes
         root.update()
+        # Play sound effect of a phone call
         playsound.playsound("calling.mp3")
-        say(f"Hello everyone,My name is akash, The answer maybe {option_by_friend}",140)
-        phone_used=True
+        # Use the 'say' function to have the character "Akash" speak the response
+        say(f"Hello everyone, My name is Akash, The answer maybe {option_by_friend}", 140)
+        # Mark the phone-a-friend lifeline as used to prevent further use
+        phone_used = True
+
 
 def skip_question():
     global i, skip_used
@@ -303,26 +312,34 @@ def skip_question():
 
 def lifeline_50_50():
     global lifeline_50_used, i 
-    if not lifeline_50_used: # Check if the 50-50 lifline is used
-        current_question = questions_data[i]
+    
+    if not lifeline_50_used:  # Check if the 50-50 lifeline is unused
+        current_question = questions_data[i]  # Access the current question
         correct_answer = current_question["answer"]
         options = current_question["options"]
-        
-        incorrect_options = [option for option in options if option != correct_answer] # Storing all the incorrect options 
-       
-        options_to_remove = random.sample(incorrect_options, 2) # Select the options which will be removed
 
+        # Identify incorrect options
+        incorrect_options = [option for option in options if option != correct_answer]
+        
+        # Randomly select two options to remove
+        options_to_remove = random.sample(incorrect_options, 2)
+
+        # Update options visually and modify the `questions_data` directly
         for option in options_to_remove:
             if option == options[0]:
-                optionButton1.config(text="")
+                optionButton1.config(text="")  # Visually remove option 1
             elif option == options[1]:
-                optionButton2.config(text="")
+                optionButton2.config(text="")  # Visually remove option 2
             elif option == options[2]:
-                optionButton3.config(text="")
+                optionButton3.config(text="")  # Visually remove option 3
             elif option == options[3]:
-                optionButton4.config(text="")
-    
-        lifeline_50_used = True  # Mark 50-50 lifeline as used
+                optionButton4.config(text="")  # Visually remove option 4
+
+            # Remove the option from the `questions_data` list so phone a freind does not read it
+            current_question["options"].remove(option)
+
+        # Mark the 50-50 lifeline as used
+        lifeline_50_used = True  
         lifeline50Button.config(activebackground='black', bg='black', cursor='')
         image50.config(file='50-50-used.png')
         root.update()
