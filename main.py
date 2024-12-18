@@ -484,7 +484,7 @@ def start():
     if dev: playsound.playsound('next q.wav')
     if dev: say(f'{questions_data[i]["question"]} \n option A . {questions_data[i]["options"][0]}\n . option B . {questions_data[i]["options"][1]} . option C . {questions_data[i]["options"][2]} . option D . {questions_data[i]["options"][3]} ')
 
-# Create the baground image
+# Create the background image
 bgimag = PhotoImage(file='bg.png')
 bgimage = Label(root, image=bgimag, bd=0)
 bgimage.place(x=0, y=0)
