@@ -3,7 +3,7 @@ import playsound
 import random
 import pyttsx3
 
-dev=False #Turn this to false to stop question reading and greedings
+dev=TRUE #Turn this to false to stop question reading and greedings
 
 def say(a:str, rate:int=200):
     if True:
@@ -289,11 +289,11 @@ def phone():
         # Update the window to reflect changes
         root.update()
         # Play sound effect of a phone call
-        #playsound.playsound("calling.mp3")
+        playsound.playsound("calling.mp3")
         # Use the 'say' function to have the character "Akash" speak the response
         say(f"Hello everyone, My name is Akash, The answer maybe {option_by_friend}", 140)
         # Mark the phone-a-friend lifeline as used to prevent further use
-        #phone_used = True
+        phone_used = True
 
 
 def skip_question():
